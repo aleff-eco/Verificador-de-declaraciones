@@ -6,15 +6,17 @@ from Interfaz import Ui_Automata
 
 
 patrones= [
-    (r'^(int\s+[a-zA-Z]\w*\s*=\s*\d+;)$', "Declaracion de variable entera"),
-    (r'^(float\s+[a-zA-Z]\w*\s*=\s*\d+\.\d+;)$', "Declaracion de variable flotante"),
-    (r'^(string\s+[a-zA-Z]\w*\s*=\s*"[a-zA-Z0-9\s]*";)$', "Declaracion de variable de cadena"),
-    (r'^(boolean\s+[a-zA-Z]\w*\s*=\s*(true|false);)$', "Declaracion de variable booleana"),
-    (r'^if\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*$', "Declaracion condicional con comparacion"),
-    (r'^for\s+[a-zA-Z]\w*\s+in\s+[a-zA-Z_]\w*:\s*$', "Declaracion de bucle 'for'"),
-    (r'^while\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*$', "Declaracion de bucle 'while'"),
-    (r'^def\s+[a-zA-Z_]\w*\s*\(\s*([a-zA-Z_]\w*\s*(,\s*[a-zA-Z_]\w*\s*)*)?\)\s*:\s*$', "Declaracion de funcion con o sin argumentos"),
-    (r'^print\(".+?"\);$', "Instruccion de impresion con texto entre paréntesis"),
+    (r'^(int\s+[a-zA-Z]\w*\s*=\s*\d+;)\s*$', "Declaracion de variable entera"),
+    (r'^(float\s+[a-zA-Z]\w*\s*=\s*\d+\.\d+;)\s*$', "Declaracion de variable flotante"),
+    (r'^(string\s+[a-zA-Z]\w*\s*=\s*"[a-zA-Z0-9\s]*";)\s*$', "Declaracion de variable de cadena"),
+    (r'^(boolean\s+[a-zA-Z]\w*\s*=\s*(true|false);)\s*$', "Declaracion de variable booleana"),
+    #(r'^if\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*$', "Declaracion condicional con comparacion"), con o sin argumentos y opcional 'return'"
+    
+    (r'^if\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*C\s*(else:\s*C\s*)?$', "Declaracion condicional con comparacion"),
+    (r'^for\s+[a-zA-Z]\w*\s+in\s+[a-zA-Z]\w*:\s*C\s*$', "Declaracion de bucle 'for'"),
+    (r'^while\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*C$', "Declaracion de bucle 'while'"),
+    (r'^def\s+[a-zA-Z]\w*\s*\(\s*([a-zA-Z]\w*\s*(,\s*[a-zA-Z]\w*\s*)*)?\)\s*:\s*C\s*(return\s+[a-zA-Z]\w*\s*;)?$', "Declaracion de funcion"),
+    (r'^print\(".+?"\);$', "Instruccion de impresion con texto entre comillas"),
     (r'^print\(.+?\);$', "Instruccion de impresion de una variable" )
 ]
 
@@ -23,7 +25,7 @@ def validar_declaracion(statement):
     patron_valid = []
     patron_tested= []
 
-    for patron, descripcion in patrones:
+    for patron, descripcion in patrones:    
         if re.match(patron, statement):
             patron_valid.append((patron, descripcion))
             break
