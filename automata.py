@@ -12,7 +12,7 @@ patrones= [
     (r'^(boolean\s+[a-zA-Z]\w*\s*=\s*(true|false);)\s*$', "Declaracion de variable booleana"),
     #(r'^if\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*$', "Declaracion condicional con comparacion"), con o sin argumentos y opcional 'return'"
     
-    (r'^if\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*C\s*(else:\s*C\s*)?$', "Declaracion condicional con comparacion"),
+    (r'^if\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*C\s*(else:\s*MC\s*)?$', "Declaracion condicional con comparacion"),
     (r'^for\s+[a-zA-Z]\w*\s+in\s+[a-zA-Z]\w*:\s*C\s*$', "Declaracion de bucle 'for'"),
     (r'^while\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+:\s*C$', "Declaracion de bucle 'while'"),
     (r'^def\s+[a-zA-Z]\w*\s*\(\s*([a-zA-Z]\w*\s*(,\s*[a-zA-Z]\w*\s*)*)?\)\s*:\s*C\s*(return\s+[a-zA-Z]\w*\s*;)?$', "Declaracion de funcion"),
