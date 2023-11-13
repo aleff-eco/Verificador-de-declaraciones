@@ -6,17 +6,19 @@ from Interfaz import Ui_Automata
 
 
 patrones= [
-    (r'^(int\s+[a-zA-Z]\w*\s*=\s*\d+;)\s*$', "Declaracion de variable entera"),
-    (r'^(float\s+[a-zA-Z]\w*\s*=\s*\d+\.\d+;)\s*$', "Declaracion de variable flotante"),
-    (r'^(string\s+[a-zA-Z]\w*\s*=\s*"[a-zA-Z0-9\s]*";)\s*$', "Declaracion de variable de cadena"),
-    (r'^(boolean\s+[a-zA-Z]\w*\s*=\s*(true|false);)\s*$', "Declaracion de variable booleana"),
+    (r'^(int\s+[a-zA-Z]\w*\s*=\s*\d+;)\s*$', "Declaración de variable entera"),
+    (r'^(float\s+[a-zA-Z]\w*\s*=\s*\d+\.\d+;)\s*$', "Declaración de variable flotante"),
+    (r'^(string\s+[a-zA-Z]\w*\s*=\s*"[a-z_A-Z_0-9_\s]*";)\s*$', "Declaración de variable de cadena"),
+    (r'^(boolean\s+[a-zA-Z]\w*\s*=\s*(true|false);)\s*$', "Declaración de variable booleana"),
     
-    (r'^\s*if\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+\s*:\s*C\s*(else:\s*MC\s*)?\s*$', "Declaracion condicional con comparacion"),
-    (r'^\s*for\s+[a-zA-Z]\w*\s+in\s+[a-zA-Z]\w*\s*:\s*C\s*$', "Declaracion de bucle 'for'"),
-    (r'^\s*while\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+\s*:\s*C\s*$', "Declaracion de bucle 'while'"),
-    (r'^\s*def\s+[a-zA-Z]\w*\s*\(\s*([a-zA-Z]\w*\s*(,\s*[a-zA-Z]\w*\s*)*)?\s*\)\s*:\s*C\s*(return\s+[a-zA-Z]\w*\s*;)?\s*$', "Declaracion de funcion"),
-    (r'^print\(".+?"\);$', "Instruccion de impresion con texto entre comillas"),
-    (r'^print\(.+?\);$', "Instruccion de impresion de una variable" )
+    (r'^\s*if\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+\s*:\s*C\s*(else:\s*MC\s*)?\s*$', "Declaración condicional con comparación"),
+    (r'^\s*for\s+[a-zA-Z]\w*\s+in\s+[a-zA-Z]\w*\s*:\s*C\s*$', "Declaración de bucle 'for'"),
+    (r'^\s*while\s+[a-zA-Z]\w*\s*(>=|<=|==|<|>)\s*\d+\s*:\s*C\s*$', "Declaración de bucle 'while'"),
+    (r'^\s*def\s+[a-zA-Z]\w*\s*\(\s*([a-zA-Z]\w*\s*(,\s*[a-zA-Z]\w*\s*)*)?\s*\)\s*:\s*C\s*(return\s+[a-zA-Z]\w*\s*;)?\s*$', "Declaración de funcion"),
+    # (r'^print\(".+?"\);$', "Instrucción de impresión con texto entre comillas"),
+    (r'^\s*print\s*\("[-\dA-Za-z_]*"\);$', "Instrucción de impresión con texto entre comillas"),
+    (r'^\s*print\s*\([a-zA-Z]\w*\);$', "Instrucción de impresión")
+    # (r'^print\(.+?\);$', "Instrucción de impresión" )
 ]
 
 
